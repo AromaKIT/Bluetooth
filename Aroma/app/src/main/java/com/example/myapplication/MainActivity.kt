@@ -5,7 +5,6 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothSocket
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -126,8 +125,6 @@ class MainActivity : AppCompatActivity() {
                 missingPermissions.toTypedArray(),
                 PERMISSION_REQUEST_CODE
             )
-        } else {
-            // All permissions granted, continue Bluetooth work
         }
     }
 
