@@ -19,4 +19,8 @@
 * Work to be done- modify and add the Bluetooth functionality to the actual app
 
 ## Code adapted from Android Studio guides-
-* https://developer.android.com/develop/connectivity/bluetooth/setup 
+* [Bluetooth Setup](https://developer.android.com/develop/connectivity/bluetooth/setup)
+* [Find Bluetooth Capable Devices](https://developer.android.com/develop/connectivity/bluetooth/find-bluetooth-devices)
+* [Connect Device](https://developer.android.com/develop/connectivity/bluetooth/connect-bluetooth-devices)
+* [Data Transfer](https://developer.android.com/develop/connectivity/bluetooth/transfer-data)
+* [Bluetooth Permissions](https://developer.android.com/develop/connectivity/bluetooth/bt-permissions)
