@@ -25,6 +25,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import java.util.Timer
+import kotlin.concurrent.schedule
 
 
 const val TAG1 = "MainActivity"
@@ -191,19 +193,30 @@ class MainActivity : AppCompatActivity() {
         // Sample of how to send and receive data
         fun manageMyConnectedSocket(it: BluetoothSocket) {
 
+            val timer = Timer()
+
             val mmInStream: InputStream = it.inputStream
             val mmOutStream: OutputStream = it.outputStream
             val mmBuffer: ByteArray = ByteArray(1024) // mmBuffer store for the stream
 
-            mmOutStream.write("HELLO \n".toByteArray())
-            Log.i(TAG3, "Sent: HELLO")
+            val message = arrayOf("Hello", "Welcome", "to", "AromaKIT", "TEST 20 20 Hello World")
 
-            try {
-                val reader = BufferedReader(InputStreamReader(mmInStream))
-                val response = reader.readLine()
-                Log.i(TAG4, "Response: $response")
-            } catch (e: IOException) {
-                Log.e(TAG4, "Error reading from input stream")
+            for (i in message.indices) {
+                mmOutStream.write((message[i]+"\n").toByteArray())
+
+                // include this is if the device is returning information to the controlling device to debug, etc
+//                try {
+//                    val reader = BufferedReader(InputStreamReader(mmInStream))
+//                    val response = reader.readLine()
+//                    Log.i(TAG4, "Response: $response")
+//                } catch (e: IOException) {
+//                    Log.e(TAG4, "Error reading from input stream")
+//                }
+
+                timer.schedule(1000){
+                    Log.i(TAG3, "Sent: ${message[i]}")
+                }
+                sleep(2000)
             }
 
             it.close()
